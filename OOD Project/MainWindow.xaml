@@ -6,7 +6,55 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+
+    
+    <!-- Main Menu - what the consumer will view first when loading the program --> 
+  
+    <!-- Grids (Margin + Rows and Columns) -->
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Featured Game feature - Middle Screen -->
+        <Border Grid.Column="0"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Margin="10">
+            
+            <TextBlock Text="FEATURED GAME"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="24"/>
+        </Border>
         
+        <!--Side Menu/Panel-->
+        <StackPanel Grid.Column="1"
+                    Margin="10"
+                    VerticalAlignment="Center">
+
+            <Button Content="Store"
+                    Height="40"
+                    Margin="0,10"/>
+
+            <Button Content="My Library"
+                    Height="40"
+                    Margin="0,10"/>
+
+            <Button Content="PCs / Addons "
+                    Height="40"
+                    Margin="0,10"/>
+
+            <Button Content="Account / Rewards"
+                    Height="40"
+                    Margin="0,10"/>
+            
+        </StackPanel>
     </Grid>
 </Window>
