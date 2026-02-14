@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Grid Margin="20">
+    <Grid Margin="20" Background="White">
+
 
         <!-- Rows -->
         <Grid.RowDefinitions>
@@ -16,26 +17,25 @@
         </Grid.RowDefinitions>
 
         <!-- FILTER BAR -->
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="0"
-                    Margin="0,0,0,10">
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-            <ComboBox Width="150" Margin="5">
+            <ComboBox Grid.Column="0" Margin="5" >
                 <ComboBoxItem Content="Platform"/>
             </ComboBox>
-
-            <ComboBox Width="150" Margin="5">
+            <ComboBox Grid.Column="1" Margin="5">
                 <ComboBoxItem Content="Genre"/>
             </ComboBox>
-
-            <ComboBox Width="150" Margin="5">
+            <ComboBox Grid.Column="2" Margin="5">
                 <ComboBoxItem Content="Price"/>
             </ComboBox>
-
-            <Button Content="Search"
-                    Width="100"
-                    Margin="5"/>
-        </StackPanel>
+            <Button Grid.Column="3" Content="Search" Width="100" Margin="5"/>
+        </Grid>
 
         <!-- MAIN CONTENT -->
         <Grid Grid.Row="1">
