@@ -1,0 +1,74 @@
+﻿<Window x:Class="OOD_Project.StoreWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOD_Project"
+        mc:Ignorable="d"
+        Title="StoreWindow" Height="500" Width="800">
+    <Grid Margin="20">
+         <Grid.RowDefinitions>
+        
+        <RowDefinition Height="Auto"/>
+        <!-- Filter bar -->
+        <RowDefinition Height="*"/>
+        <!-- Game list/details -->
+        </Grid.RowDefinitions>
+
+        <!-- FILTER BAR -->
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    Margin="0,0,0,10">
+
+            <ComboBox Width="150" Margin="5" x:Name="cmbPlatform">
+                <ComboBoxItem Content="Platform"/>
+            </ComboBox>
+
+            <ComboBox Width="150" Margin="5" x:Name="cmbGenre">
+                <ComboBoxItem Content="Genre"/>
+            </ComboBox>
+
+            <ComboBox Width="150" Margin="5" x:Name="cmbPrice">
+                <ComboBoxItem Content="Price"/>
+            </ComboBox>
+
+            <Button Content="Search"
+                    Width="100"
+                    Margin="5"
+                    Click="btnSearch_Click"/>
+        </StackPanel>
+
+        <!-- MAIN CONTENT -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <!-- Game List -->
+                <ColumnDefinition Width="3*"/>
+                <!-- Game Details -->
+            </Grid.ColumnDefinitions>
+
+            <!-- GAME LIST -->
+            <ListBox Grid.Column="0" x:Name="lstGames" Margin="5" SelectionChanged="lstGames_SelectionChanged">
+                <!-- Later bind to ObservableCollection<Game> -->
+            </ListBox>
+
+            <!-- GAME DETAILS -->
+            <StackPanel Grid.Column="1" Margin="10">
+                <Border Height="180" Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Game Image" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <TextBlock x:Name="tblkGameTitle" Text="Game Title" FontSize="18" Margin="0,10"/>
+                <TextBlock x:Name="tblkGameDescription" Text="Game description goes here." TextWrapping="Wrap"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15">
+                    <Button Content="Random Game" Width="100" Margin="5"/>
+                    <Button Content="Add To Cart" Width="100" Margin="5"/>
+                    <Button Content="View Details" Width="100" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
