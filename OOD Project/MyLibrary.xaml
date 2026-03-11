@@ -6,7 +6,24 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="MyLibrary" Height="450" Width="800">
-    <Grid>
-        
+    
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Text="My Game Library"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,10"/>
+
+        <!-- GAME LIST -->
+        <ListBox x:Name="lbxLibrary"
+                 Grid.Row="1"
+                 SelectionChanged="lbxLibrary_SelectionChanged"/>
+
     </Grid>
 </Window>

@@ -58,6 +58,7 @@
     <Compile Include="Account+Rewards.xaml.cs">
       <DependentUpon>Account+Rewards.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="MyLibrary.xaml.cs">
       <DependentUpon>MyLibrary.xaml</DependentUpon>
     </Compile>

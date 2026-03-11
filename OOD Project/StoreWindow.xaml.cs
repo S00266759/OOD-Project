@@ -12,14 +12,6 @@ namespace OOD_Project
     /// </summary>
     public partial class StoreWindow : Window
     {
-        // Sample Game class - for testing only, will make proper one later on.
-        public class Game
-        {
-            public string Title { get; set; }
-            public string Genre { get; set; }
-            public string Platform { get; set; }
-            public string Description { get; set; }
-        }
 
         // ObservableCollection to hold games
         private ObservableCollection<Game> Games = new ObservableCollection<Game>();

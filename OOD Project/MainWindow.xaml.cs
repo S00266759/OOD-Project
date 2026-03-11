@@ -17,5 +17,11 @@ namespace OOD_Project
             StoreWindow store = new StoreWindow();
             store.Show();
         }
+
+        private void btn_Library_Click(object sender, RoutedEventArgs e)
+        {
+            MyLibrary gamelibrary = new MyLibrary();
+            gamelibrary.Show();
+        }
     }
 }
