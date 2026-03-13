@@ -6,7 +6,34 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="Account_Rewards" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Account/Rewards"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,15"/>
+
+        <StackPanel Grid.Row="1">
+
+            <TextBlock Text="Username:" FontWeight="Bold"/>
+            <TextBlock x:Name="tblkUsername" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Email:" FontWeight="Bold"/>
+            <TextBlock x:Name="tblkEmail" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Reward Points:" FontWeight="Bold"/>
+            <TextBlock x:Name="tblkPoints" Margin="0,0,0,10"/>
+
+            <Button Content="Redeem Reward"
+                    Width="150"
+                    Margin="0,10"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>

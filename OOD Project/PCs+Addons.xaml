@@ -6,7 +6,60 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="PCs_Addons" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="PCs/Addons"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,10"/>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ITEM LIST -->
+            <ListBox x:Name="lbxAddons"
+                     Grid.Column="0"
+                     Margin="5"
+                     SelectionChanged="lbxAddons_SelectionChanged"/>
+
+            <!-- DETAILS -->
+            <StackPanel Grid.Column="1" Margin="10">
+
+                <Border Height="150"
+                        Background="LightGray"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Text="Item Image"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <TextBlock x:Name="tblkItemName"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Margin="0,10"/>
+
+                <TextBlock x:Name="tblkItemDescription"
+                           TextWrapping="Wrap"
+                           Margin="0,5"/>
+
+                <TextBlock x:Name="tblkItemPrice"
+                           Margin="0,5"/>
+
+                <Button Content="Add to Cart"
+                        Width="120"
+                        Margin="0,10"/>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>

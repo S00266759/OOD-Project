@@ -23,5 +23,18 @@ namespace OOD_Project
             MyLibrary gamelibrary = new MyLibrary();
             gamelibrary.Show();
         }
+
+        private void btn_PCs_Addons_Click(object sender, RoutedEventArgs e)
+        {
+             PCs_Addons pcsAddons = new PCs_Addons();
+            pcsAddons.Show();
+        }
+
+        private void btn_Account_Rewards_Click(object sender, RoutedEventArgs e)
+        {
+            Account_Rewards accountRewards = new Account_Rewards();
+            accountRewards.Show();
+        }
+
     }
 }

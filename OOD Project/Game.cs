@@ -8,13 +8,13 @@ namespace OOD_Project
 {
     public class Game
     {
-        public int GameId { get; set; }
         public string Title { get; set; }
         public string Genre { get; set; }
         public string Platform { get; set; }
         public string Description { get; set; }
-        public decimal Price { get; set; }
+
+        //for MyLibrary (also uses title, genre and platform)
         public DateTime PurchaseDate { get; set; }
     }
-}
 
+}

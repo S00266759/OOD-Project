@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace OOD_Project
 {
@@ -34,11 +35,14 @@ namespace OOD_Project
             lbxLibrary.DisplayMemberPath = "Title";
         }
 
-        private void lbxLibrary_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void lbxLibrary_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lbxLibrary.SelectedItem is Game selectedGame)
             {
-                MessageBox.Show($"Game: {selectedGame.Title}\nPlatform: {selectedGame.Platform}");
+                tblkTitle.Text = selectedGame.Title;
+                tblkGenre.Text = "Genre: " + selectedGame.Genre;
+                tblkPlatform.Text = "Platform: " + selectedGame.Platform;
+                tblkDate.Text = "Purchased: " + selectedGame.PurchaseDate.ToShortDateString();
             }
         }
     }

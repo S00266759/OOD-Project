@@ -58,6 +58,7 @@
     <Compile Include="Account+Rewards.xaml.cs">
       <DependentUpon>Account+Rewards.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddonItem.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="MyLibrary.xaml.cs">
       <DependentUpon>MyLibrary.xaml</DependentUpon>
@@ -68,6 +69,7 @@
     <Compile Include="StoreWindow.xaml.cs">
       <DependentUpon>StoreWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Page Include="Account+Rewards.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
