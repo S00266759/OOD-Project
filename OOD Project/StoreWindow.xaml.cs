@@ -9,6 +9,7 @@ using System.Windows.Media;
 using OOD_Project.Data;
 using OOD_Project.ProjectData;
 using System.Linq;
+using System;
 
 
 namespace OOD_Project
@@ -26,14 +27,73 @@ namespace OOD_Project
         {
             InitializeComponent();
 
-            // Adding some sample games - again temporary
-            Games.Add(new Game { Title = "CyberGame 2077", Genre = "RPG", Platform = "PC", Description = "Futuristic RPG action game." });
-            Games.Add(new Game { Title = "Elden Ring", Genre = "Action", Platform = "PC", Description = "Epic open world fantasy adventure." });
-            Games.Add(new Game { Title = "Halo Infinite", Genre = "Shooter", Platform = "Xbox", Description = "Classic sci-fi shooter experience." });
-            Games.Add(new Game { Title = "Doom Eternal", Genre = "Shooter", Platform = "Xbox", Description = "Classic shooter experience." });
-            Games.Add(new Game { Title = "The Legend of Zelda: Breath of the Wild", Genre = "Adventure", Platform = "Nintendo Switch", Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule" });
-            Games.Add(new Game { Title = "The Legend of Zelda: Ocarina of Time", Genre = "Adventure", Platform = "Nintendo 64", Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule" });
-            Games.Add(new Game { Title = "The Legend of Zelda: Majora's Mask", Genre = "Adventure", Platform = "Nintendo 64", Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule" });
+            using (var context = new GamezExpressContext())
+            {
+                context.Games.Add(new Game
+                {
+                    Title = "CyberGame 2077",
+                    Genre = "RPG",
+                    Platform = "PC",
+                    Description = "Futuristic RPG action game.",
+                    PurchaseDate = DateTime.Now
+                });
+
+                context.Games.Add(new Game 
+                { 
+                    Title = "Elden Ring", 
+                    Genre = "Action", 
+                    Platform = "PC", 
+                    Description = "Epic open world fantasy adventure.", 
+                    PurchaseDate = DateTime.Now 
+                });
+
+                context.Games.Add(new Game 
+                { 
+                    Title = "Halo Infinite", 
+                    Genre = "Shooter", 
+                    Platform = "Xbox", 
+                    Description = "Classic sci-fi shooter experience.", 
+                    PurchaseDate = DateTime.Now 
+                });
+
+                context.Games.Add(new Game 
+                { 
+                    Title = "Doom Eternal", 
+                    Genre = "Shooter", 
+                    Platform = "Xbox", 
+                    Description = "Classic shooter experience.", 
+                    PurchaseDate = DateTime.Now 
+                });
+
+                context.Games.Add(new Game 
+                { 
+                    Title = "The Legend of Zelda: Breath of the Wild", 
+                    Genre = "Adventure", 
+                    Platform = "Nintendo Switch", 
+                    Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
+                    PurchaseDate = DateTime.Now 
+                });
+
+                context.Games.Add(new Game 
+                { 
+                    Title = "The Legend of Zelda: Ocarina of Time", 
+                    Genre = "Adventure", Platform = "Nintendo 64", 
+                    Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
+                    PurchaseDate = DateTime.Now 
+                });
+
+                context.Games.Add(new Game 
+                { 
+                    Title = "The Legend of Zelda: Majora's Mask", 
+                    Genre = "Adventure", Platform = "Nintendo 64", 
+                    Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
+                    PurchaseDate = DateTime.Now 
+                });
+
+                context.SaveChanges();
+            }
+
+            //Loading from Database 
 
 
             // Binding to the ListBox
