@@ -1,8 +1,14 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
+using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
+
+//For Database
+using OOD_Project.Data;
+using OOD_Project.ProjectData;
+using System.Linq;
 
 
 namespace OOD_Project

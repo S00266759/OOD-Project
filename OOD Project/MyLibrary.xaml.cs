@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
+using OOD_Project.ProjectData;
 
 namespace OOD_Project
 {

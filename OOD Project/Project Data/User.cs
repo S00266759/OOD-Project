@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOD_Project
+namespace OOD_Project.Data
 {
     public class User
     {
