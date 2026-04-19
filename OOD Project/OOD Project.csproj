@@ -68,13 +68,13 @@
     <Compile Include="Account+Rewards.xaml.cs">
       <DependentUpon>Account+Rewards.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202604151311420_InitialCreate.cs" />
-    <Compile Include="Migrations\202604151311420_InitialCreate.Designer.cs">
-      <DependentUpon>202604151311420_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202604191301571_InitialCreate.cs" />
+    <Compile Include="Migrations\202604191301571_InitialCreate.Designer.cs">
+      <DependentUpon>202604191301571_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202604151314078_UpdateGameSchema.cs" />
-    <Compile Include="Migrations\202604151314078_UpdateGameSchema.Designer.cs">
-      <DependentUpon>202604151314078_UpdateGameSchema.cs</DependentUpon>
+    <Compile Include="Migrations\202604191331091_Update.cs" />
+    <Compile Include="Migrations\202604191331091_Update.Designer.cs">
+      <DependentUpon>202604191331091_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Data\AddonItem.cs" />
@@ -133,11 +133,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202604151311420_InitialCreate.resx">
-      <DependentUpon>202604151311420_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202604191301571_InitialCreate.resx">
+      <DependentUpon>202604191301571_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202604151314078_UpdateGameSchema.resx">
-      <DependentUpon>202604151314078_UpdateGameSchema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202604191331091_Update.resx">
+      <DependentUpon>202604191331091_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

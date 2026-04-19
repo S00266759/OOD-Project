@@ -44,7 +44,15 @@ namespace OOD_Project
                 tblkTitle.Text = selectedGame.Title;
                 tblkGenre.Text = "Genre: " + selectedGame.Genre;
                 tblkPlatform.Text = "Platform: " + selectedGame.Platform;
-                tblkDate.Text = "Purchased: " + selectedGame.PurchaseDate.ToShortDateString();
+
+                if (selectedGame.PurchaseDate.HasValue)
+                {
+                    tblkDate.Text = "Purchased: " + selectedGame.PurchaseDate.Value.ToShortDateString();
+                }
+                else
+                {
+                    tblkDate.Text = "Not purchased yet";
+                }
             }
         }
     }

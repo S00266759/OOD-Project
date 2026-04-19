@@ -15,8 +15,8 @@ namespace OOD_Project.ProjectData
         public string Platform { get; set; }
         public string Description { get; set; }
 
-        //for MyLibrary (also uses title, genre and platform)
-        public DateTime PurchaseDate { get; set; }
+       
+        public DateTime? PurchaseDate { get; set; } // nullable,  only used when a game is 'bought' (in the MyLibrary)
     }
 
 }

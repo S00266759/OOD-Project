@@ -35,7 +35,7 @@ namespace OOD_Project
                     Genre = "RPG",
                     Platform = "PC",
                     Description = "Futuristic RPG action game.",
-                    PurchaseDate = DateTime.Now
+                    
                 });
 
                 context.Games.Add(new Game 
@@ -44,7 +44,7 @@ namespace OOD_Project
                     Genre = "Action", 
                     Platform = "PC", 
                     Description = "Epic open world fantasy adventure.", 
-                    PurchaseDate = DateTime.Now 
+                   
                 });
 
                 context.Games.Add(new Game 
@@ -53,7 +53,7 @@ namespace OOD_Project
                     Genre = "Shooter", 
                     Platform = "Xbox", 
                     Description = "Classic sci-fi shooter experience.", 
-                    PurchaseDate = DateTime.Now 
+                    
                 });
 
                 context.Games.Add(new Game 
@@ -62,7 +62,7 @@ namespace OOD_Project
                     Genre = "Shooter", 
                     Platform = "Xbox", 
                     Description = "Classic shooter experience.", 
-                    PurchaseDate = DateTime.Now 
+                    
                 });
 
                 context.Games.Add(new Game 
@@ -71,7 +71,7 @@ namespace OOD_Project
                     Genre = "Adventure", 
                     Platform = "Nintendo Switch", 
                     Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
-                    PurchaseDate = DateTime.Now 
+                   
                 });
 
                 context.Games.Add(new Game 
@@ -79,7 +79,7 @@ namespace OOD_Project
                     Title = "The Legend of Zelda: Ocarina of Time", 
                     Genre = "Adventure", Platform = "Nintendo 64", 
                     Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
-                    PurchaseDate = DateTime.Now 
+                    
                 });
 
                 context.Games.Add(new Game 
@@ -87,7 +87,7 @@ namespace OOD_Project
                     Title = "The Legend of Zelda: Majora's Mask", 
                     Genre = "Adventure", Platform = "Nintendo 64", 
                     Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
-                    PurchaseDate = DateTime.Now 
+                    
                 });
 
                 context.SaveChanges();
