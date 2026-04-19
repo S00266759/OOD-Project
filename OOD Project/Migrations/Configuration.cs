@@ -10,6 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "OOD_Project.Data.GamezExpressContext";
         }
 
         protected override void Seed(OOD_Project.Data.GamezExpressContext context)

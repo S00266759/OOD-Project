@@ -68,24 +68,24 @@
     <Compile Include="Account+Rewards.xaml.cs">
       <DependentUpon>Account+Rewards.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202604191301571_InitialCreate.cs" />
-    <Compile Include="Migrations\202604191301571_InitialCreate.Designer.cs">
-      <DependentUpon>202604191301571_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202604191605128_InitialCreate.cs" />
+    <Compile Include="Migrations\202604191605128_InitialCreate.Designer.cs">
+      <DependentUpon>202604191605128_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202604191331091_Update.cs" />
-    <Compile Include="Migrations\202604191331091_Update.Designer.cs">
-      <DependentUpon>202604191331091_Update.cs</DependentUpon>
+    <Compile Include="Migrations\202604191608260_InitialCreate1.cs" />
+    <Compile Include="Migrations\202604191608260_InitialCreate1.Designer.cs">
+      <DependentUpon>202604191608260_InitialCreate1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Data\AddonItem.cs" />
-    <Compile Include="Project Data\Game.cs" />
-    <Compile Include="Project Data\GamezExpressContext.cs" />
     <Compile Include="MyLibrary.xaml.cs">
       <DependentUpon>MyLibrary.xaml</DependentUpon>
     </Compile>
     <Compile Include="PCs+Addons.xaml.cs">
       <DependentUpon>PCs+Addons.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Project Data\Game.cs" />
+    <Compile Include="Project Data\GamezExpressContext.cs" />
     <Compile Include="StoreWindow.xaml.cs">
       <DependentUpon>StoreWindow.xaml</DependentUpon>
     </Compile>
@@ -133,11 +133,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202604191301571_InitialCreate.resx">
-      <DependentUpon>202604191301571_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202604191605128_InitialCreate.resx">
+      <DependentUpon>202604191605128_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202604191331091_Update.resx">
-      <DependentUpon>202604191331091_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202604191608260_InitialCreate1.resx">
+      <DependentUpon>202604191608260_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

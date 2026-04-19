@@ -10,6 +10,7 @@ using OOD_Project.Data;
 using OOD_Project.ProjectData;
 using System.Linq;
 using System;
+using System.Runtime.Remoting.Contexts;
 
 
 namespace OOD_Project
@@ -29,81 +30,82 @@ namespace OOD_Project
 
             using (var context = new GamezExpressContext())
             {
-                context.Games.Add(new Game
+                // Only adding games if DB is empty
+                if (!context.Games.Any())
                 {
-                    Title = "CyberGame 2077",
-                    Genre = "RPG",
-                    Platform = "PC",
-                    Description = "Futuristic RPG action game.",
-                    
-                });
+                    context.Games.Add(new Game
+                    {
+                        Title = "CyberGame 2077",
+                        Genre = "RPG",
+                        Platform = "PC",
+                        Description = "Futuristic RPG action game.",
 
-                context.Games.Add(new Game 
-                { 
-                    Title = "Elden Ring", 
-                    Genre = "Action", 
-                    Platform = "PC", 
-                    Description = "Epic open world fantasy adventure.", 
-                   
-                });
+                    });
 
-                context.Games.Add(new Game 
-                { 
-                    Title = "Halo Infinite", 
-                    Genre = "Shooter", 
-                    Platform = "Xbox", 
-                    Description = "Classic sci-fi shooter experience.", 
-                    
-                });
+                    context.Games.Add(new Game
+                    {
+                        Title = "Elden Ring",
+                        Genre = "Action",
+                        Platform = "PC",
+                        Description = "Epic open world fantasy adventure.",
 
-                context.Games.Add(new Game 
-                { 
-                    Title = "Doom Eternal", 
-                    Genre = "Shooter", 
-                    Platform = "Xbox", 
-                    Description = "Classic shooter experience.", 
-                    
-                });
+                    });
 
-                context.Games.Add(new Game 
-                { 
-                    Title = "The Legend of Zelda: Breath of the Wild", 
-                    Genre = "Adventure", 
-                    Platform = "Nintendo Switch", 
-                    Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
-                   
-                });
+                    context.Games.Add(new Game
+                    {
+                        Title = "Halo Infinite",
+                        Genre = "Shooter",
+                        Platform = "Xbox",
+                        Description = "Classic sci-fi shooter experience.",
 
-                context.Games.Add(new Game 
-                { 
-                    Title = "The Legend of Zelda: Ocarina of Time", 
-                    Genre = "Adventure", Platform = "Nintendo 64", 
-                    Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
-                    
-                });
+                    });
 
-                context.Games.Add(new Game 
-                { 
-                    Title = "The Legend of Zelda: Majora's Mask", 
-                    Genre = "Adventure", Platform = "Nintendo 64", 
-                    Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule", 
-                    
-                });
+                    context.Games.Add(new Game
+                    {
+                        Title = "Doom Eternal",
+                        Genre = "Shooter",
+                        Platform = "Xbox",
+                        Description = "Classic shooter experience.",
 
-                context.SaveChanges();
+                    });
+
+                    context.Games.Add(new Game
+                    {
+                        Title = "The Legend of Zelda: Breath of the Wild",
+                        Genre = "Adventure",
+                        Platform = "Nintendo Switch",
+                        Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule",
+
+                    });
+
+                    context.Games.Add(new Game
+                    {
+                        Title = "The Legend of Zelda: Ocarina of Time",
+                        Genre = "Adventure",
+                        Platform = "Nintendo 64",
+                        Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule",
+
+                    });
+
+                    context.Games.Add(new Game
+                    {
+                        Title = "The Legend of Zelda: Majora's Mask",
+                        Genre = "Adventure",
+                        Platform = "Nintendo 64",
+                        Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule",
+
+                    });
+
+                    context.SaveChanges();
+                }
+
+                //Loading from Database 
+                lstGames.ItemsSource = context.Games.ToList();
+                lstGames.DisplayMemberPath = "Title";
+
             }
-
-            //Loading from Database 
-
-
-            // Binding to the ListBox
-            lstGames.ItemsSource = Games;
-            lstGames.DisplayMemberPath = "Title";
-
-            // Setting default selected
-            if (lstGames.Items.Count > 0)
-                lstGames.SelectedIndex = 0;
         }
+    
 
 
         private void lstGames_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -120,6 +122,26 @@ namespace OOD_Project
         {
             // For now, just a placeholder message
             MessageBox.Show("Search clicked! Later this will filter the games.");
+        }
+
+        private void btnBuy_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstGames.SelectedItem is Game selectedGame)
+            {
+                using (var context = new GamezExpressContext())
+                {
+                    // Find the game in DB
+                    var game = context.Games.Find(selectedGame.GameId);
+
+                    if (game != null)
+                    {
+                        game.PurchaseDate = DateTime.Now; // mark as purchased
+                        context.SaveChanges();
+
+                        MessageBox.Show("Game added to your library!");
+                    }
+                }
+            }
         }
     }
 }

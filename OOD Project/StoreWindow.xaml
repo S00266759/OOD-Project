@@ -17,19 +17,20 @@
 
         <!-- FILTER BAR -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
-            <ComboBox Width="150" Margin="5" x:Name="cmbPlatform">
+            <ComboBox Width="150" Margin="5" x:Name="cbxPlatform">
                 <ComboBoxItem Content="Platform"/>
             </ComboBox>
 
-            <ComboBox Width="150" Margin="5" x:Name="cmbGenre">
+            <ComboBox Width="150" Margin="5" x:Name="cbxGenre">
                 <ComboBoxItem Content="Genre"/>
             </ComboBox>
 
-            <ComboBox Width="150" Margin="5" x:Name="cmbPrice">
+            <ComboBox Width="150" Margin="5" x:Name="cbxPrice">
                 <ComboBoxItem Content="Price"/>
             </ComboBox>
 
-            <Button Content="Search"
+            <Button x:Name="btnSearch" 
+                    Content="Search"
                     Width="100"
                     Margin="5"
                     Click="btnSearch_Click"/>
@@ -61,9 +62,9 @@
                            TextWrapping="Wrap"/>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15">
-                    <Button Content="Random Game" Width="100" Margin="5"/>
-                    <Button Content="Add To Cart" Width="100" Margin="5"/>
-                    <Button Content="View Details" Width="100" Margin="5"/>
+                    <Button x:Name="btnRandomGame" Content="Random Game" Width="100" Margin="5"/>
+                    <Button x:Name="btnAddtoCart" Content="Add To Cart" Width="100" Margin="5" Click="btnBuy_Click"/>
+                    <Button x:Name="btnViewDetails" Content="View Details" Width="100" Margin="5"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
