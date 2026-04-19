@@ -48,5 +48,29 @@ namespace OOD_Project
                 }
             }
         }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbxLibrary.SelectedItem is Game selectedGame)
+            {
+                using (var context = new GamezExpressContext())
+                {
+                    var game = context.Games.Find(selectedGame.GameId);
+
+                    if (game != null)
+                    {
+                        game.PurchaseDate = null; // "unbuy" game
+                        context.SaveChanges();
+
+                        MessageBox.Show("Game removed from library!"); //temporary for testing
+
+                        // refresh list
+                        lbxLibrary.ItemsSource = context.Games
+                            .Where(g => g.PurchaseDate != null)
+                            .ToList();
+                    }
+                }
+            }
+        }
     }
 }

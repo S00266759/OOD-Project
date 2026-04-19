@@ -58,6 +58,12 @@
                 <TextBlock x:Name="tblkDate"
                            Margin="0,5"/>
 
+
+                <Button x:Name ="btnRemove" 
+                        Content="Remove from Library"
+                        Click="btnRemove_Click"
+                        Margin="5"/>
+
             </StackPanel>
 
         </Grid>

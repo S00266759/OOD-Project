@@ -27,7 +27,7 @@ namespace OOD_Project
 
             using (var context = new GamezExpressContext())
             {
-                MessageBox.Show(context.Games.Count().ToString()); //checking if database holds amount of games specified (had multiple entries)
+                MessageBox.Show(context.Games.Count().ToString()); //testing - checking if database holds amount of games specified (had multiple entries)
 
                 // Only adding games if DB is empty
                 if (!context.Games.Any())
@@ -99,9 +99,11 @@ namespace OOD_Project
                 }
 
 
-                //Loading from Database 
-                lstGames.ItemsSource = null;
-                lstGames.ItemsSource = context.Games.ToList();
+                //Loading from Database (unowned games, not in MyLibrary)
+                lstGames.ItemsSource = context.Games
+                .Where(g => g.PurchaseDate == null)
+                .ToList();
+
                 lstGames.DisplayMemberPath = "Title";
 
             }
