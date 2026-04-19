@@ -39,6 +39,7 @@ namespace OOD_Project
                         Genre = "RPG",
                         Platform = "PC",
                         Description = "Futuristic RPG action game.",
+                        ImagePath = "/Images/cyberpunk.jpg"
 
                     });
 
@@ -48,6 +49,7 @@ namespace OOD_Project
                         Genre = "Action",
                         Platform = "PC",
                         Description = "Epic open world fantasy adventure.",
+                        ImagePath = "/Images/eldenring.jpg"
 
                     });
 
@@ -57,6 +59,7 @@ namespace OOD_Project
                         Genre = "Shooter",
                         Platform = "Xbox",
                         Description = "Classic sci-fi shooter experience.",
+                        ImagePath = "/Images/haloinfinite.jpg"
 
                     });
 
@@ -66,6 +69,7 @@ namespace OOD_Project
                         Genre = "Shooter",
                         Platform = "Xbox",
                         Description = "Classic shooter experience.",
+                        ImagePath = "/Images/doometernal.jpg"
 
                     });
 
@@ -75,6 +79,7 @@ namespace OOD_Project
                         Genre = "Adventure",
                         Platform = "Nintendo Switch",
                         Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule",
+                        ImagePath = "/Images/zeldabotw.jpg"
 
                     });
 
@@ -84,6 +89,7 @@ namespace OOD_Project
                         Genre = "Adventure",
                         Platform = "Nintendo 64",
                         Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule",
+                        ImagePath = "/Images/zeldaoot.jpg"
 
                     });
 
@@ -93,6 +99,7 @@ namespace OOD_Project
                         Genre = "Adventure",
                         Platform = "Nintendo 64",
                         Description = "Open world adventure that battles the evil overlord, Ganondorf and his reign of darkness over Hyrule",
+                        ImagePath = "/Images/zeldamm.jpg"
 
                     });
 
@@ -105,7 +112,7 @@ namespace OOD_Project
                 .Where(g => g.PurchaseDate == null)
                 .ToList();
 
-                lstGames.DisplayMemberPath = "Title";
+                
 
             }
         }

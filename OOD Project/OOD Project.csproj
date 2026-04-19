@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202604191605128_InitialCreate.Designer.cs">
       <DependentUpon>202604191605128_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202604192102052_AddImagePath.cs" />
+    <Compile Include="Migrations\202604192102052_AddImagePath.Designer.cs">
+      <DependentUpon>202604192102052_AddImagePath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Data\AddonItem.cs" />
     <Compile Include="MyLibrary.xaml.cs">
@@ -132,6 +136,9 @@
     <EmbeddedResource Include="Migrations\202604191605128_InitialCreate.resx">
       <DependentUpon>202604191605128_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202604192102052_AddImagePath.resx">
+      <DependentUpon>202604192102052_AddImagePath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -146,6 +153,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\cyberpunk.jpg" />
+    <Resource Include="Images\doometernal.jpg" />
+    <Resource Include="Images\doomtda.jpg" />
+    <Resource Include="Images\eldenring.jpg" />
+    <Resource Include="Images\haloinfinite.jpg" />
+    <Resource Include="Images\zeldabotw.jpg" />
+    <Resource Include="Images\zeldamm.jpg" />
+    <Resource Include="Images\zeldaoot.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

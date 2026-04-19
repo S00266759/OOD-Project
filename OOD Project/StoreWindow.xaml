@@ -53,6 +53,39 @@
             <!-- GAME LIST -->
             <ListBox Grid.Column="0" x:Name="lstGames" Margin="5"
                      SelectionChanged="lstGames_SelectionChanged">
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray"
+                    BorderThickness="1"
+                    Margin="5"
+                    Padding="5">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <!-- Game Image -->
+                                <Image Source="{Binding ImagePath}"
+                                       Width="100"
+                                       Height="100"
+                                       Margin="5"/>
+
+                                <!-- Game Info -->
+                                <StackPanel Margin="10">
+
+                                    <TextBlock Text="{Binding Title}"
+                                   FontWeight="Bold"
+                                   FontSize="16"/>
+
+                                    <TextBlock Text="{Binding Genre}"/>
+
+                                    <TextBlock Text="{Binding Platform}"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
 
             <!-- GAME DETAILS -->

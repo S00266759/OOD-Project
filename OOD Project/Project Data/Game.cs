@@ -15,6 +15,8 @@ namespace OOD_Project.ProjectData
         public string Platform { get; set; }
         public string Description { get; set; }
 
+        public string ImagePath { get; set; }
+
         public DateTime? PurchaseDate { get; set; } //For MyLibrary
     }
 }
