@@ -11,6 +11,7 @@ using OOD_Project.ProjectData;
 using System.Linq;
 using System;
 using System.Runtime.Remoting.Contexts;
+using System.Windows.Controls;
 
 
 namespace OOD_Project
@@ -123,9 +124,37 @@ namespace OOD_Project
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            // For now, just a placeholder message
-            MessageBox.Show("Search clicked! Later this will filter the games.");
+            using (var context = new GamezExpressContext())
+            {
+                string searchText = txtSearch.Text.ToLower();
+
+                string selectedPlatform = (cbxPlatform.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string selectedGenre = (cbxGenre.SelectedItem as ComboBoxItem)?.Content.ToString();
+
+                var query = context.Games.Where(g => g.PurchaseDate == null);
+
+                // Search filter
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    query = query.Where(g => g.Title.ToLower().Contains(searchText));
+                }
+
+                // Platform filter
+                if (selectedPlatform != "All" && !string.IsNullOrEmpty(selectedPlatform))
+                {
+                    query = query.Where(g => g.Platform.Contains(selectedPlatform));
+                }
+
+                // Genre filter
+                if (selectedGenre != "All" && !string.IsNullOrEmpty(selectedGenre))
+                {
+                    query = query.Where(g => g.Genre.Contains(selectedGenre));
+                }
+
+                lstGames.ItemsSource = query.ToList();
+            }
         }
+        
 
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {

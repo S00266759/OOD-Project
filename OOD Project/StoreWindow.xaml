@@ -17,16 +17,23 @@
 
         <!-- FILTER BAR -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
-            <ComboBox Width="150" Margin="5" x:Name="cbxPlatform">
-                <ComboBoxItem Content="Platform"/>
+
+            <TextBox x:Name="txtSearch"
+                       Width="200"
+                       Margin="5"/>
+            
+            <ComboBox x:Name="cbxPlatform" Width="150" Margin="5">
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="PC"/>
+                <ComboBoxItem Content="Xbox"/>
+                <ComboBoxItem Content="Nintendo"/>
             </ComboBox>
 
-            <ComboBox Width="150" Margin="5" x:Name="cbxGenre">
-                <ComboBoxItem Content="Genre"/>
-            </ComboBox>
-
-            <ComboBox Width="150" Margin="5" x:Name="cbxPrice">
-                <ComboBoxItem Content="Price"/>
+            <ComboBox x:Name="cbxGenre" Width="150" Margin="5">
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="RPG"/>
+                <ComboBoxItem Content="Shooter"/>
+                <ComboBoxItem Content="Adventure"/>
             </ComboBox>
 
             <Button x:Name="btnSearch" 
