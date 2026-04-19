@@ -4,6 +4,8 @@ using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
 using OOD_Project.ProjectData;
+using System.Linq;
+using OOD_Project.Data;
 
 namespace OOD_Project
 {
@@ -17,24 +19,15 @@ namespace OOD_Project
         {
             InitializeComponent();
 
-            Library.Add(new Game
+            using (var context = new GamezExpressContext())
             {
-                Title = "Cyberpunk 2077",
-                Genre = "RPG",
-                Platform = "PC",
-                PurchaseDate = DateTime.Now
-            });
+                var ownedGames = context.Games
+                    .Where(g => g.PurchaseDate != null)
+                    .ToList();
 
-            Library.Add(new Game
-            {
-                Title = "Halo Infinite",
-                Genre = "Shooter",
-                Platform = "Xbox",
-                PurchaseDate = DateTime.Now
-            });
-
-            lbxLibrary.ItemsSource = Library;
-            lbxLibrary.DisplayMemberPath = "Title";
+                lbxLibrary.ItemsSource = ownedGames;
+                lbxLibrary.DisplayMemberPath = "Title";
+            }
         }
 
         private void lbxLibrary_SelectionChanged(object sender, SelectionChangedEventArgs e)

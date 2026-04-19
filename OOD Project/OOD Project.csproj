@@ -72,10 +72,6 @@
     <Compile Include="Migrations\202604191605128_InitialCreate.Designer.cs">
       <DependentUpon>202604191605128_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202604191608260_InitialCreate1.cs" />
-    <Compile Include="Migrations\202604191608260_InitialCreate1.Designer.cs">
-      <DependentUpon>202604191608260_InitialCreate1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Data\AddonItem.cs" />
     <Compile Include="MyLibrary.xaml.cs">
@@ -135,9 +131,6 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202604191605128_InitialCreate.resx">
       <DependentUpon>202604191605128_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202604191608260_InitialCreate1.resx">
-      <DependentUpon>202604191608260_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

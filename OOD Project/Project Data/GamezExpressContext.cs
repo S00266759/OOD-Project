@@ -10,7 +10,7 @@ namespace OOD_Project.Data
 {
     public class GamezExpressContext : DbContext
     {
-            public GamezExpressContext() : base("GamezExpressDB")
+            public GamezExpressContext() : base("name=GamezExpressDB")
             {
             }
 

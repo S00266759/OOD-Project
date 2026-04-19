@@ -21,21 +21,20 @@ namespace OOD_Project
     public partial class StoreWindow : Window
     {
 
-        // ObservableCollection to hold games
-        private ObservableCollection<Game> Games = new ObservableCollection<Game>();
-
         public StoreWindow()
         {
             InitializeComponent();
 
             using (var context = new GamezExpressContext())
             {
+                MessageBox.Show(context.Games.Count().ToString()); //checking if database holds amount of games specified (had multiple entries)
+
                 // Only adding games if DB is empty
                 if (!context.Games.Any())
                 {
                     context.Games.Add(new Game
                     {
-                        Title = "CyberGame 2077",
+                        Title = "CyberPunk 2077",
                         Genre = "RPG",
                         Platform = "PC",
                         Description = "Futuristic RPG action game.",
@@ -99,7 +98,9 @@ namespace OOD_Project
                     context.SaveChanges();
                 }
 
+
                 //Loading from Database 
+                lstGames.ItemsSource = null;
                 lstGames.ItemsSource = context.Games.ToList();
                 lstGames.DisplayMemberPath = "Title";
 
