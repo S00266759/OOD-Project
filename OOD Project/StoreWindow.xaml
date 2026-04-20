@@ -90,11 +90,10 @@
 
             <!-- GAME DETAILS -->
             <StackPanel Grid.Column="1" Margin="10">
-                <Border Height="180" Background="LightGray" BorderBrush="Black" BorderThickness="1">
-                    <TextBlock Text="Game Image"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                </Border>
+                <Image x:Name="imgGame"
+                         Height="180"
+                         Stretch="Fill"
+                         Margin="0,0,0,10"/>
 
                 <TextBlock x:Name="tblkGameTitle" Text="Game Title" FontSize="18" Margin="0,10"/>
                 <TextBlock x:Name="tblkGameDescription"
@@ -102,7 +101,7 @@
                            TextWrapping="Wrap"/>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15">
-                    <Button x:Name="btnRandomGame" Content="Random Game" Width="100" Margin="5"/>
+                    <Button x:Name="btnRandomGame" Content="Random Game" Width="100" Margin="5" Click="btnRandom_Click"/>
                     <Button x:Name="btnAddtoCart" Content="Add To Cart" Width="100" Margin="5" Click="btnBuy_Click"/>
                     <Button x:Name="btnViewDetails" Content="View Details" Width="100" Margin="5"/>
                 </StackPanel>

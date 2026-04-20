@@ -12,6 +12,7 @@ using System.Linq;
 using System;
 using System.Runtime.Remoting.Contexts;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 
 namespace OOD_Project
@@ -28,7 +29,7 @@ namespace OOD_Project
 
             using (var context = new GamezExpressContext())
             {
-                MessageBox.Show(context.Games.Count().ToString()); //testing - checking if database holds amount of games specified (had multiple entries)
+                /*MessageBox.Show(context.Games.Count().ToString());*/ //testing - checking if database holds amount of games specified (had multiple entries)
 
                 // Only adding games if DB is empty
                 if (!context.Games.Any())
@@ -125,9 +126,9 @@ namespace OOD_Project
             {
                 tblkGameTitle.Text = selectedGame.Title;
                 tblkGameDescription.Text = selectedGame.Description;
-                //will add code to display the actual image later.
+                imgGame.Source = new BitmapImage(new Uri(selectedGame.ImagePath, UriKind.Relative));
 
-                MessageBox.Show(selectedGame.ImagePath); //testing
+                /*MessageBox.Show(selectedGame.ImagePath);*/ //testing
             }
         }
 
@@ -182,6 +183,15 @@ namespace OOD_Project
                         MessageBox.Show("Game added to your library!");
                     }
                 }
+            }
+        }
+
+        private void btnRandom_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstGames.Items.Count > 0)
+            {
+                Random rand = new Random();
+                lstGames.SelectedIndex = rand.Next(lstGames.Items.Count);
             }
         }
     }
