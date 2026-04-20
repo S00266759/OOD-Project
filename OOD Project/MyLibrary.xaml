@@ -7,65 +7,110 @@
         mc:Ignorable="d"
         Title="MyLibrary" Height="450" Width="800">
 
-    <Grid Margin="20">
+    <Grid Margin="5" Background="#1e1e1e">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
 
-        <TextBlock Text="My Game Library"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Margin="0,0,0,10"/>
+    <!-- HEADER -->
+    <TextBlock Text="My Game Library"
+               FontSize="24"
+               FontWeight="Bold"
+               Foreground="White"
+               Margin="20,10,20,10"/>
 
-        <Grid Grid.Row="1">
+    <Grid Grid.Row="1">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
-            <!-- GAME LIST -->
+        <!-- GAME LIST -->
+        <Border Grid.Column="0"
+                Background="#2a2a2a"
+                CornerRadius="12"
+                Margin="10"
+                Padding="8"
+                BorderBrush="#333"
+                BorderThickness="1">
+
             <ListBox x:Name="lbxLibrary"
-                     Grid.Column="0"
-                     Margin="5"
+                     Background="Transparent"
+                     Foreground="White"
+                     BorderThickness="0"
                      SelectionChanged="lbxLibrary_SelectionChanged"/>
 
-            <!-- GAME DETAILS -->
-            <StackPanel Grid.Column="1" Margin="10">
+        </Border>
 
-                <Border Height="150"
-                        Background="LightGray"
-                        BorderBrush="Black"
-                        BorderThickness="1">
-                    <TextBlock Text="Game Image"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+        <!-- GAME DETAILS -->
+        <Border Grid.Column="1"
+                Background="#2a2a2a"
+                CornerRadius="12"
+                Margin="10"
+                Padding="15"
+                BorderBrush="#333"
+                BorderThickness="1">
+
+            <StackPanel>
+
+                <Border Background="#1a1a1a"
+                        CornerRadius="8"
+                        Padding="5"
+                        Margin="0,0,0,10">
+
+                    <Image x:Name="imgLibraryGame"
+                           Height="150"
+                           Stretch="Uniform"/>
                 </Border>
 
                 <TextBlock x:Name="tblkTitle"
                            FontSize="20"
                            FontWeight="Bold"
+                           Foreground="White"
                            Margin="0,10"/>
 
                 <TextBlock x:Name="tblkGenre"
+                           Foreground="Gray"
                            Margin="0,5"/>
 
                 <TextBlock x:Name="tblkPlatform"
+                           Foreground="Gray"
                            Margin="0,5"/>
 
                 <TextBlock x:Name="tblkDate"
+                           Foreground="Gray"
                            Margin="0,5"/>
 
-
-                <Button x:Name ="btnRemove" 
+                <Button x:Name="btnRemove"
                         Content="Remove from Library"
                         Click="btnRemove_Click"
-                        Margin="5"/>
+                        Margin="5"
+                        Padding="8"
+                        Background="#444"
+                        Foreground="White"
+                        BorderThickness="0">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#444"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#555"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                </Button>
 
             </StackPanel>
 
-        </Grid>
+        </Border>
+
+    </Grid>
     </Grid>
 </Window>

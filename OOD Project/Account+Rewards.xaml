@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="Account_Rewards" Height="450" Width="800">
-    <Grid Margin="20" Background="#1e1e1e">
+    
+    <Grid Margin="5" Background="#1e1e1e">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>

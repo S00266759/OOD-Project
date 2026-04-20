@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using OOD_Project.ProjectData;
 using System.Linq;
 using OOD_Project.Data;
+using System.Windows.Media.Imaging;
 
 namespace OOD_Project
 {
@@ -38,6 +39,9 @@ namespace OOD_Project
                 tblkGenre.Text = "Genre: " + selectedGame.Genre;
                 tblkPlatform.Text = "Platform: " + selectedGame.Platform;
 
+                imgLibraryGame.Source =
+            new BitmapImage(new Uri(selectedGame.ImagePath, UriKind.Relative));
+
                 if (selectedGame.PurchaseDate.HasValue)
                 {
                     tblkDate.Text = "Purchased: " + selectedGame.PurchaseDate.Value.ToShortDateString();
@@ -46,6 +50,7 @@ namespace OOD_Project
                 {
                     tblkDate.Text = "Not purchased yet";
                 }
+
             }
         }
 
