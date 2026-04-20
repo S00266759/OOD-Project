@@ -76,6 +76,10 @@
     <Compile Include="Migrations\202604192102052_AddImagePath.Designer.cs">
       <DependentUpon>202604192102052_AddImagePath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202604200949455_AddUser.cs" />
+    <Compile Include="Migrations\202604200949455_AddUser.Designer.cs">
+      <DependentUpon>202604200949455_AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Data\AddonItem.cs" />
     <Compile Include="MyLibrary.xaml.cs">
@@ -86,10 +90,10 @@
     </Compile>
     <Compile Include="Project Data\Game.cs" />
     <Compile Include="Project Data\GamezExpressContext.cs" />
+    <Compile Include="Project Data\User.cs" />
     <Compile Include="StoreWindow.xaml.cs">
       <DependentUpon>StoreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Project Data\User.cs" />
     <Page Include="Account+Rewards.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202604192102052_AddImagePath.resx">
       <DependentUpon>202604192102052_AddImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202604200949455_AddUser.resx">
+      <DependentUpon>202604200949455_AddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

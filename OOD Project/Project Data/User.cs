@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOD_Project.Data
+namespace OOD_Project.ProjectData
 {
     public class User
     {
+        public int UserId { get; set; }
         public string Username { get; set; }
-        public string Email { get; set; }
-        public int RewardPoints { get; set; }
+        public int Points { get; set; }
     }
 }

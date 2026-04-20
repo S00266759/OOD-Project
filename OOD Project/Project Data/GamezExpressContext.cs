@@ -10,11 +10,13 @@ namespace OOD_Project.Data
 {
     public class GamezExpressContext : DbContext
     {
-            public GamezExpressContext() : base("name=GamezExpressDB")
-            {
-            }
-
-            public DbSet<Game> Games { get; set; }
+        public GamezExpressContext() : base("name=GamezExpressDB")
+        {
         }
+
+        public DbSet<Game> Games { get; set; } //StoreWindow, MyLibrary, MainWindow
+
+        public DbSet<User> Users { get; set; } //Account/Rewards
     }
+}
 

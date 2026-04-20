@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using OOD_Project.Data;
+using OOD_Project.ProjectData;
+using System.Linq;
 
 namespace OOD_Project
 {
@@ -9,27 +11,26 @@ namespace OOD_Project
     public partial class Account_Rewards : Window
     {
         User CurrentUser = new User();
+
         public Account_Rewards()
         {
             InitializeComponent();
 
             // Example user data (later this will come from database)
             CurrentUser.Username = "PlayerOne";
-            CurrentUser.Email = "playerone@email.com";
-            CurrentUser.RewardPoints = 1250;
+            CurrentUser.Points = 1250;
 
             // Display data in UI
             tblkUsername.Text = CurrentUser.Username;
-            tblkEmail.Text = CurrentUser.Email;
-            tblkPoints.Text = CurrentUser.RewardPoints.ToString();
+            tblkPoints.Text = CurrentUser.Points.ToString();
         }
 
         private void btnRedeem_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentUser.RewardPoints >= 500)
+            if (CurrentUser.Points >= 500)
             {
-                CurrentUser.RewardPoints -= 500;
-                tblkPoints.Text = CurrentUser.RewardPoints.ToString();
+                CurrentUser.Points -= 500;
+                tblkPoints.Text = CurrentUser.Points.ToString();
 
                 MessageBox.Show("Reward Redeemed!");
             }
