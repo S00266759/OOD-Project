@@ -13,6 +13,7 @@ using System;
 using System.Runtime.Remoting.Contexts;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Text;
 
 
 namespace OOD_Project
@@ -107,18 +108,13 @@ namespace OOD_Project
                     context.SaveChanges();
                 }
 
-
                 //Loading from Database (unowned games, not in MyLibrary)
                 lstGames.ItemsSource = context.Games
                 .Where(g => g.PurchaseDate == null)
                 .ToList();
 
-                
-
             }
         }
-    
-
 
         private void lstGames_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -134,68 +130,102 @@ namespace OOD_Project
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new GamezExpressContext())
-            {
-                string searchText = txtSearch.Text.ToLower();
-
-                string selectedPlatform = (cbxPlatform.SelectedItem as ComboBoxItem)?.Content.ToString();
-                string selectedGenre = (cbxGenre.SelectedItem as ComboBoxItem)?.Content.ToString();
-                string selectedSort = (cbxSort.SelectedItem as ComboBoxItem)?.Content.ToString();
-
-                var query = context.Games.Where(g => g.PurchaseDate == null);
-
-                // Search filter
-                if (!string.IsNullOrEmpty(searchText))
-                {
-                    query = query.Where(g => g.Title.ToLower().Contains(searchText));
-                }
-
-                // Platform filter
-                if (selectedPlatform != "All" && !string.IsNullOrEmpty(selectedPlatform))
-                {
-                    query = query.Where(g => g.Platform.Contains(selectedPlatform));
-                }
-
-                // Genre filter
-                if (selectedGenre != "All" && !string.IsNullOrEmpty(selectedGenre))
-                {
-                    query = query.Where(g => g.Genre.Contains(selectedGenre));
-                }
-
-                // Sorting
-                if (selectedSort == "A-Z")
-                {
-                    query = query.OrderBy(g => g.Title);
-                }
-                else if (selectedSort == "Z-A")
-                {
-                    query = query.OrderByDescending(g => g.Title);
-                }
-
-                lstGames.ItemsSource = query.ToList();
-            }
-        }
-        
-
-        private void btnBuy_Click(object sender, RoutedEventArgs e)
-        {
-            if (lstGames.SelectedItem is Game selectedGame)
+            try //Exception Handling/ Defensive Coding
             {
                 using (var context = new GamezExpressContext())
                 {
-                    // Find the game in DB
-                    var game = context.Games.Find(selectedGame.GameId);
+                    string searchText = txtSearch.Text?.ToLower() ?? ""; //null safety check
 
-                    if (game != null)
+                    string selectedPlatform = (cbxPlatform.SelectedItem as ComboBoxItem)?.Content?.ToString();
+                    string selectedGenre = (cbxGenre.SelectedItem as ComboBoxItem)?.Content?.ToString();
+                    string selectedSort = (cbxSort.SelectedItem as ComboBoxItem)?.Content?.ToString();
+
+                    var query = context.Games.Where(g => g.PurchaseDate == null);
+
+                    // Search filter
+                    if (!string.IsNullOrWhiteSpace(searchText))
                     {
-                        game.PurchaseDate = DateTime.Now; // mark as purchased
-                        context.SaveChanges();
-
-                        MessageBox.Show("Game added to your library!");
+                        query = query.Where(g => g.Title.ToLower().Contains(searchText));
                     }
+
+                    // Platform filter
+                    if (!string.IsNullOrEmpty(selectedPlatform) && selectedPlatform != "All")
+                    {
+                        query = query.Where(g => g.Platform.Contains(selectedPlatform));
+                    }
+
+                    // Genre filter
+                    if (!string.IsNullOrEmpty(selectedGenre) && selectedGenre != "All")
+                    {
+                        query = query.Where(g => g.Genre.Contains(selectedGenre));
+                    }
+
+                    // Sorting
+                    if (selectedSort == "A-Z")
+                    {
+                        query = query.OrderBy(g => g.Title);
+                    }
+                    else if (selectedSort == "Z-A")
+                    {
+                        query = query.OrderByDescending(g => g.Title);
+                    }
+
+                    var results = query.ToList();
+
+                    // Defensive check
+                    if (results.Count == 0)
+                    {
+                        MessageBox.Show("No games found.");
+                    }
+
+                    lstGames.ItemsSource = results;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching games: " + ex.Message);
+            }
         }
+
+
+
+private void btnBuy_Click(object sender, RoutedEventArgs e)
+        {
+            try //Exception Handling/Defensive Coding - Protecting Buy Button
+            { 
+                if (lstGames.SelectedItem is Game selectedGame)
+                {
+                    using (var context = new GamezExpressContext())
+                    {
+                        // Find the game in DB
+                        var game = context.Games.Find(selectedGame.GameId);
+                        var user = context.Users.FirstOrDefault(); //for user - Account+Rewards window
+
+                        if (game != null && user != null)
+                        {
+                            game.PurchaseDate = DateTime.Now; // mark as purchased
+                            user.Points += 10; //points added
+                            context.SaveChanges();
+
+                            MessageBox.Show("Purchase successful! Game added to your library!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Something went wrong.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a game first.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error purchasing game: " + ex.Message);
+            }
+        }
+
 
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
