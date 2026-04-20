@@ -140,6 +140,7 @@ namespace OOD_Project
 
                 string selectedPlatform = (cbxPlatform.SelectedItem as ComboBoxItem)?.Content.ToString();
                 string selectedGenre = (cbxGenre.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string selectedSort = (cbxSort.SelectedItem as ComboBoxItem)?.Content.ToString();
 
                 var query = context.Games.Where(g => g.PurchaseDate == null);
 
@@ -159,6 +160,16 @@ namespace OOD_Project
                 if (selectedGenre != "All" && !string.IsNullOrEmpty(selectedGenre))
                 {
                     query = query.Where(g => g.Genre.Contains(selectedGenre));
+                }
+
+                // Sorting
+                if (selectedSort == "A-Z")
+                {
+                    query = query.OrderBy(g => g.Title);
+                }
+                else if (selectedSort == "Z-A")
+                {
+                    query = query.OrderByDescending(g => g.Title);
                 }
 
                 lstGames.ItemsSource = query.ToList();
