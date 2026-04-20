@@ -6,35 +6,122 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="Account_Rewards" Height="450" Width="800">
-    <Grid Margin="20">
-
+    <Grid Margin="20" Background="#1e1e1e">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Account/Rewards"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Margin="0,0,0,15"/>
+        <!-- HEADER -->
+        <TextBlock Text="Account and Rewards"
+               FontSize="28"
+               FontWeight="Bold"
+               Foreground="White"
+               Margin="20"/>
 
-        <StackPanel Grid.Row="1">
+        <Grid Grid.Row="1" Margin="20">
 
-            <TextBlock Text="Username:" FontWeight="Bold"/>
-            <TextBlock x:Name="tblkUsername" Margin="0,0,0,10"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Email:" FontWeight="Bold"/>
-            <TextBlock x:Name="tblkEmail" Margin="0,0,0,10"/>
+            <!-- LEFT: USER CARD -->
+            <Border Background="#2a2a2a"
+                CornerRadius="12"
+                Padding="15"
+                Margin="10">
 
-            <TextBlock Text="Reward Points:" FontWeight="Bold"/>
-            <TextBlock x:Name="tblkPoints" Margin="0,0,0,10"/>
+                <StackPanel>
 
-            <Button Content="Redeem Reward"
-                    Width="150"
-                    Margin="0,10"
-                    Click="btnRedeem_Click"/>
+                    <TextBlock Text="PROFILE"
+                           Foreground="Gray"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
 
-        </StackPanel>
+                    <TextBlock Text="Username"
+                           Foreground="Gray"/>
 
+                    <TextBlock x:Name="tblkUsername"
+                           Foreground="White"
+                           FontSize="18"
+                           Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Points"
+                           Foreground="Gray"/>
+
+                    <TextBlock x:Name="tblkPoints"
+                           Foreground="#00ff9c"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                    <!-- Progress -->
+                    <TextBlock Text="Progress to next reward"
+                           Foreground="Gray"/>
+
+                    <ProgressBar x:Name="prgPoints"
+                             Height="12"
+                             Maximum="5000"
+                             Margin="0,5,0,15"/>
+
+                    <Button Content="Reset Points (Test)"
+                        Click="btnReset_Click"
+                        Background="#444"
+                        Foreground="White"
+                        Margin="0,5"/>
+                </StackPanel>
+
+            </Border>
+
+            <!-- RIGHT: REWARDS CARD -->
+            <Border Grid.Column="1"
+                Background="#2a2a2a"
+                CornerRadius="12"
+                Padding="15"
+                Margin="10">
+
+                <StackPanel>
+
+                    <TextBlock Text="REWARDS STORE"
+                           Foreground="Gray"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                    <ComboBox x:Name="cbxRewards"
+                          SelectionChanged="cbxRewards_SelectionChanged"
+                          Margin="0,0,0,10">
+
+                        <ComboBoxItem Content="10% Discount (500 pts)"/>
+                        <ComboBoxItem Content="20% Discount (1000 pts)"/>
+                        <ComboBoxItem Content="50% Discount (3500 pts)"/>
+                        <ComboBoxItem Content="Free Game (5000 pts)"/>
+
+                    </ComboBox>
+
+                    <!-- Preview -->
+                    <Border Background="#1a1a1a"
+                        CornerRadius="8"
+                        Padding="10"
+                        Margin="0,0,0,10">
+
+                        <TextBlock x:Name="tblkRewardPreview"
+                               Text="Select a reward..."
+                               Foreground="Gray"
+                               TextWrapping="Wrap"/>
+                    </Border>
+
+                    <Button Content="Redeem Reward"
+                        Click="btnRedeem_Click"
+                        Background="#00ff9c"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        Height="40"/>
+
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
     </Grid>
 </Window>
