@@ -126,6 +126,8 @@ namespace OOD_Project
                 tblkGameTitle.Text = selectedGame.Title;
                 tblkGameDescription.Text = selectedGame.Description;
                 //will add code to display the actual image later.
+
+                MessageBox.Show(selectedGame.ImagePath); //testing
             }
         }
 
