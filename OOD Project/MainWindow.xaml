@@ -11,7 +11,7 @@
     <!-- Main Menu - what the consumer will view first when loading the program --> 
   
     <!-- Grids (Margin + Rows and Columns) -->
-    <Grid Margin="20">
+    <Grid Margin="5" Background="#1e1e1e">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -26,23 +26,33 @@
 
 
         <!-- HEADER -->
-        <Border x:Name="brder_GamezExpress_header_" Grid.Row="0"
-                Grid.ColumnSpan="2"
-                Background="LightGray"
-                Padding="10">
+        <Border x:Name="brder_GamezExpress_header_"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Background="#2a2a2a"
+            CornerRadius="12"
+            Padding="15"
+            Margin="0,0,0,10"
+            BorderBrush="#333"
+            BorderThickness="1">
 
-            <TextBlock x:Name="tblk_GamezExpress_header_" Text="GamezExpress"
-                       FontSize="24"
-                       FontWeight="Bold"/>
+            <TextBlock x:Name="tblk_GamezExpress_header_"
+                   Text="GamezExpress"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Foreground="White"/>
         </Border>
 
-        
-        <!-- Featured Game feature - Middle Screen -->
-        <Border x:Name="brder_FeaturedGame" Grid.Row="1"
-                Grid.Column="0"
-                BorderBrush="Black"
-                BorderThickness="2"
-                Margin="10">
+        <!-- FEATURED GAME -->
+        <Border x:Name="brder_FeaturedGame"
+            Grid.Row="1"
+            Grid.Column="0"
+            Background="#2a2a2a"
+            CornerRadius="12"
+            Margin="10"
+            Padding="15"
+            BorderBrush="#333"
+            BorderThickness="1">
 
             <Grid>
 
@@ -52,37 +62,31 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Game Image -->
-                <Border BorderBrush="Gray"
-                BorderThickness="1"
-                Margin="5">
+                <Border Background="#1a1a1a"
+                    CornerRadius="8"
+                    Margin="5"
+                    Padding="5">
 
-                    <TextBlock Text="Game Image"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                    <Image x:Name="imgFeaturedGame"
+                           Stretch="UniformToFill"/>
                 </Border>
 
                 <!-- Game Details -->
                 <StackPanel Grid.Column="1"
-                    Margin="15">
+                        Margin="15">
 
                     <TextBlock Text="Featured Game Title"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       Margin="0,0,0,10"/>
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="0,0,0,10"/>
 
-                    <TextBlock Text="Game description will appear here. This could describe gameplay, story, or highlights of the game."
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,15"/>
+                    <TextBlock Text="Classic shooter experience. Venture through hell as the legendary Doom Slayer through the armies of hell to save humanity."
+                           TextWrapping="Wrap"
+                           Foreground="Gray"
+                           Margin="0,0,0,15"/>
 
                     <StackPanel Orientation="Horizontal">
-
-                        <Button Content="View Game"
-                        Width="100"
-                        Margin="5"/>
-
-                        <Button Content="Buy Now"
-                        Width="100"
-                        Margin="5"/>
 
                     </StackPanel>
 
@@ -92,31 +96,37 @@
 
         </Border>
 
-        <!--Side Menu/Panel-->
-        <StackPanel x:Name="stckpnl_SideMenu" Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="10"
-                    VerticalAlignment="Center">
+        <!-- SIDE MENU -->
+        <StackPanel x:Name="stckpnl_SideMenu"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10"
+                VerticalAlignment="Center">
 
-            <Button x:Name="btn_Store" Content="Store"
-                    Height="40"
-                    Margin="0,10" 
-                    Click="btn_Store_Click"/>
+            <Button x:Name="btn_Store"
+                Content="Store"
+                Height="40"
+                Margin="0,10"
+                Background="#2a2a2a"
+                Foreground="White"
+                BorderThickness="0" Click="btn_Store_Click_1"/>
 
-            <Button x:Name="btn_Library" Content="My Library"
-                    Height="40"
-                    Margin="0,10"
-                    Click="btn_Library_Click"/>
+            <Button x:Name="btn_Library"
+                Content="My Library"
+                Height="40"
+                Margin="0,10"
+                Background="#2a2a2a"
+                Foreground="White"
+                BorderThickness="0" Click="btn_Library_Click_1"/>
 
-            <Button x:Name="btn_PCs_Addons" Content="PCs / Addons "
-                    Height="40"
-                    Margin="0,10"
-                    Click="btn_PCs_Addons_Click"/>
+            <Button x:Name="btn_Account_Rewards"
+                Content="Account / Rewards"
+                Height="40"
+                Margin="0,10"
+                Background="#2a2a2a"
+                Foreground="White"
+                BorderThickness="0" Click="btn_Account_Rewards_Click_1"/>
 
-            <Button x:Name="btn_Account_Rewards" Content="Account / Rewards"
-                    Height="40"
-                    Margin="0,10"
-                    Click="btn_Account_Rewards_Click"/>
 
         </StackPanel>
         

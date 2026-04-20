@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace OOD_Project
 {
@@ -10,27 +12,25 @@ namespace OOD_Project
         public MainWindow()
         {
             InitializeComponent();
+
+            imgFeaturedGame.Source = new BitmapImage(
+        new Uri("/Images/doometernal.jpg", UriKind.Relative));
         }
 
-        private void btn_Store_Click(object sender, RoutedEventArgs e)
+        private void btn_Store_Click_1(object sender, RoutedEventArgs e)
         {
             StoreWindow store = new StoreWindow();
             store.Show();
         }
 
-        private void btn_Library_Click(object sender, RoutedEventArgs e)
+        private void btn_Library_Click_1(object sender, RoutedEventArgs e)
         {
             MyLibrary gamelibrary = new MyLibrary();
             gamelibrary.Show();
         }
 
-        private void btn_PCs_Addons_Click(object sender, RoutedEventArgs e)
-        {
-             PCs_Addons pcsAddons = new PCs_Addons();
-            pcsAddons.Show();
-        }
 
-        private void btn_Account_Rewards_Click(object sender, RoutedEventArgs e)
+        private void btn_Account_Rewards_Click_1(object sender, RoutedEventArgs e)
         {
             Account_Rewards accountRewards = new Account_Rewards();
             accountRewards.Show();
