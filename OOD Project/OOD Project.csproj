@@ -81,7 +81,6 @@
       <DependentUpon>202604200949455_AddUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Project Data\AddonItem.cs" />
     <Compile Include="MyLibrary.xaml.cs">
       <DependentUpon>MyLibrary.xaml</DependentUpon>
     </Compile>
