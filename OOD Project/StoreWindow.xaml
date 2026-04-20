@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
         Title="StoreWindow" Height="500" Width="800">
-    
-    <Grid Margin="5">
+
+    <Grid Margin="5" Background="#1e1e1e">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <!-- Filter bar -->
@@ -16,101 +16,183 @@
         </Grid.RowDefinitions>
 
         <!-- FILTER BAR -->
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+        <StackPanel Orientation="Horizontal"
+                Grid.Row="0"
+                Margin="0,0,0,10">
 
             <TextBox x:Name="txtSearch"
-                       Width="200"
-                       Margin="5"/>
-            
-            <ComboBox x:Name="cbxPlatform" Width="150" Margin="5">
+                 Width="200"
+                 Margin="5"
+                 Background="#2a2a2a"
+                 Foreground="White"
+                 BorderBrush="#333"/>
+
+            <ComboBox x:Name="cbxPlatform"
+                  Width="150"
+                  Margin="5"
+                  Background="#2a2a2a"
+                  Foreground="Black">
                 <ComboBoxItem Content="All"/>
                 <ComboBoxItem Content="PC"/>
                 <ComboBoxItem Content="Xbox"/>
                 <ComboBoxItem Content="Nintendo"/>
             </ComboBox>
 
-            <ComboBox x:Name="cbxGenre" Width="150" Margin="5">
+            <ComboBox x:Name="cbxGenre"
+                  Width="150"
+                  Margin="5"
+                  Background="#2a2a2a"
+                  Foreground="Black">
                 <ComboBoxItem Content="All"/>
                 <ComboBoxItem Content="RPG"/>
                 <ComboBoxItem Content="Shooter"/>
                 <ComboBoxItem Content="Adventure"/>
             </ComboBox>
 
-            <ComboBox x:Name="cbxSort" Width="150" Margin="5">
+            <ComboBox x:Name="cbxSort"
+                  Width="150"
+                  Margin="5"
+                  Background="#2a2a2a"
+                  Foreground="Black">
                 <ComboBoxItem Content="A-Z"/>
                 <ComboBoxItem Content="Z-A"/>
             </ComboBox>
 
-            <Button x:Name="btnSearch" 
-                    Content="Search"
-                    Width="100"
-                    Margin="5"
-                    Click="btnSearch_Click"/>
+            <Button x:Name="btnSearch"
+                Content="Search"
+                Width="100"
+                Margin="5"
+                Background="#00ff9c"
+                Foreground="Black"
+                FontWeight="Bold"
+                BorderThickness="0"
+                Click="btnSearch_Click"/>
         </StackPanel>
 
         <!-- MAIN CONTENT -->
         <Grid Grid.Row="1">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
             <!-- GAME LIST -->
-            <ListBox Grid.Column="0" x:Name="lstGames" Margin="5"
+            <Border Grid.Column="0"
+                Background="#2a2a2a"
+                CornerRadius="12"
+                Margin="5"
+                Padding="5"
+                BorderBrush="#333"
+                BorderThickness="1">
+
+                <ListBox x:Name="lstGames"
+                     Background="Transparent"
+                     Foreground="White"
+                     BorderThickness="0"
                      SelectionChanged="lstGames_SelectionChanged">
-                
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Gray"
-                    BorderThickness="1"
-                    Margin="5"
-                    Padding="5">
 
-                            <StackPanel Orientation="Horizontal">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#333"
+                                BorderThickness="1"
+                                Margin="5"
+                                Padding="5"
+                                Background="#1e1e1e">
 
-                                <!-- Game Image -->
-                                <Image Source="{Binding ImagePath}"
-                                       Width="100"
-                                       Height="100"
+                                <StackPanel Orientation="Horizontal">
+
+                                    <Image Source="{Binding ImagePath}"
+                                       Width="80"
+                                       Height="80"
                                        Margin="5"/>
 
-                                <!-- Game Info -->
-                                <StackPanel Margin="10">
+                                    <StackPanel Margin="10">
 
-                                    <TextBlock Text="{Binding Title}"
-                                   FontWeight="Bold"
-                                   FontSize="16"/>
+                                        <TextBlock Text="{Binding Title}"
+                                               Foreground="White"
+                                               FontWeight="Bold"
+                                               FontSize="16"/>
 
-                                    <TextBlock Text="{Binding Genre}"/>
+                                        <TextBlock Text="{Binding Genre}"
+                                               Foreground="Gray"/>
 
-                                    <TextBlock Text="{Binding Platform}"/>
+                                        <TextBlock Text="{Binding Platform}"
+                                               Foreground="Gray"/>
+
+                                    </StackPanel>
 
                                 </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
 
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ListBox>
+            </Border>
 
             <!-- GAME DETAILS -->
-            <StackPanel Grid.Column="1" Margin="10" Background="#222">
-                <Image x:Name="imgGame"
-                         Height="180"
-                         Stretch="Fill"
-                         Margin="0,0,0,10"/>
+            <Border Grid.Column="1"
+                Background="#2a2a2a"
+                CornerRadius="12"
+                Margin="10"
+                Padding="15"
+                BorderBrush="#333"
+                BorderThickness="1">
 
-                <TextBlock Foreground="White" x:Name="tblkGameTitle" Text="Game Title" FontSize="18" Margin="0,10"/>
-                <TextBlock Foreground="White" x:Name="tblkGameDescription"
+                <StackPanel>
+
+                    <Image x:Name="imgGame"
+                       Height="180"
+                       Stretch="Uniform"
+                       Margin="0,0,0,10"/>
+
+                    <TextBlock x:Name="tblkGameTitle"
+                           Text="Game Title"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="0,10"/>
+
+                    <TextBlock x:Name="tblkGameDescription"
                            Text="Game description goes here."
-                           TextWrapping="Wrap"/>
+                           TextWrapping="Wrap"
+                           Foreground="Gray"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,15">
-                    <Button x:Name="btnRandomGame" Content="Random Game" Width="100" Margin="5" Click="btnRandom_Click"/>
-                    <Button x:Name="btnAddtoCart" Content="Add To Cart" Width="100" Margin="5" Click="btnBuy_Click"/>
-                    <Button x:Name="btnViewDetails" Content="View Details" Width="100" Margin="5"/>
+                    <StackPanel Orientation="Horizontal"
+                            Margin="0,15">
+
+                        <Button x:Name="btnRandomGame"
+                            Content="Random"
+                            Width="100"
+                            Margin="5"
+                            Background="#444"
+                            Foreground="White"
+                            BorderThickness="0"
+                            Click="btnRandom_Click"/>
+
+                        <Button x:Name="btnAddtoCart"
+                            Content="Add"
+                            Width="100"
+                            Margin="5"
+                            Background="#00ff9c"
+                            Foreground="Black"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            Click="btnBuy_Click"/>
+
+                        <Button x:Name="btnViewDetails"
+                            Content="Details"
+                            Width="100"
+                            Margin="5"
+                            Background="#444"
+                            Foreground="White"
+                            BorderThickness="0"/>
+
+                    </StackPanel>
+
                 </StackPanel>
-            </StackPanel>
+            </Border>
+
         </Grid>
     </Grid>
 </Window>
