@@ -2,6 +2,7 @@
 using OOD_Project.Data;
 using OOD_Project.ProjectData;
 using System.Linq;
+using System;
 
 namespace OOD_Project
 {
@@ -10,34 +11,62 @@ namespace OOD_Project
     /// </summary>
     public partial class Account_Rewards : Window
     {
-        User CurrentUser = new User();
-
+        private User CurrentUser;
         public Account_Rewards()
         {
             InitializeComponent();
 
-            // Example user data (later this will come from database)
-            CurrentUser.Username = "PlayerOne";
-            CurrentUser.Points = 1250;
+            using (var context = new GamezExpressContext())
+            {
+                CurrentUser = context.Users.FirstOrDefault();
 
-            // Display data in UI
-            tblkUsername.Text = CurrentUser.Username;
-            tblkPoints.Text = CurrentUser.Points.ToString();
+                if (CurrentUser == null)
+                {
+                    CurrentUser = new User
+                    {
+                        Username = "PlayerOne",
+                        Points = 0
+                    };
+
+                    context.Users.Add(CurrentUser);
+                    context.SaveChanges();
+                }
+
+                tblkUsername.Text = CurrentUser.Username;
+                tblkPoints.Text = CurrentUser.Points.ToString();
+            }
         }
 
         private void btnRedeem_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentUser.Points >= 500)
+            try //Exception Handling/Defensive Coding - Protecting Redeem Button
             {
-                CurrentUser.Points -= 500;
-                tblkPoints.Text = CurrentUser.Points.ToString();
+                using (var context = new GamezExpressContext())
+                {
+                    var user = context.Users.FirstOrDefault();
 
-                MessageBox.Show("Reward Redeemed!");
+                    if (user != null)
+                    {
+                        if (user.Points >= 500)
+                        {
+                            user.Points -= 500;
+                            context.SaveChanges();
+
+                            tblkPoints.Text = user.Points.ToString();
+                            MessageBox.Show("Reward Redeemed!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not enough points.");
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Not enough points.");
+                MessageBox.Show("Error redeeming reward: " + ex.Message);
             }
         }
     }
 }
+
